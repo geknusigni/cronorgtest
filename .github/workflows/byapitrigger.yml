@@ -1,16 +1,27 @@
-# .github/workflows/cron-trigger.yml
-name: Webhook Workflow
+name: Node.js CI (Manual)
 
 on:
-  repository_dispatch:
-    types: [cron_trigger]
+  workflow_dispatch:   # 手动触发
+    inputs:
+      node-version:    # 你还可以定义输入参数
+        description: '选择 Node.js 版本'
+        required: true
+        default: '20'
 
 jobs:
-  do-job:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: "Checkout repository"
+      - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Print payload
-        run: |
-          echo "Payload: ${{ toJson(github.event.client_payload) }}"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ github.event.inputs.node-version }}
+
+      - name: Install dependencies
+        run: npm install -g rettiwt-api 
+
+      - name: Run
+        run: rettiwt help
