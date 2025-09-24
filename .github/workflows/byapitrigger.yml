@@ -24,4 +24,4 @@ jobs:
         run: npm install -g rettiwt-api 
 
       - name: Run
-        run: rettiwt user help
+        run: rettiwt user details elonmusk
