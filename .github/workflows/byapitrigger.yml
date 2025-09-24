@@ -26,6 +26,5 @@ jobs:
       - name: Run
         run: |
           rettiwt user details elonmusk
-          rettiwt auth login hodresurde@gufum.com hodresurdeext Ggtuoi@2025_0207
           # rettiwt auth help
           rettiwt user timeline 44196397
