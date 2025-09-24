@@ -26,4 +26,5 @@ jobs:
       - name: Run
         run: |
           rettiwt user details elonmusk
-          rettiwt user timeline 44196397
+          rettiwt auth help
+          # rettiwt user timeline 44196397
